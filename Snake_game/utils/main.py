@@ -3,6 +3,7 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 import time
+import random
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -10,7 +11,7 @@ screen.bgcolor("black")
 screen.title("My snake game")
 screen.tracer(0)
 
-snake = Snake()
+snake = Snake(start_pos=(0,0))
 food = Food()
 scoreboard = Scoreboard()
 
@@ -47,5 +48,15 @@ while game_is_on:
         if snake.head.distance(segment) < 10:
             game_is_on = False
             scoreboard.game_over()
+
+# screen.resetscreen()
+# random_x = random.randint(-280, 280)
+# random_y = random.randint(-280, 280)
+# snake = Snake((random_x, random_x))
+# food = Food()
+# scoreboard = Scoreboard()
+# screen.update()
+# time.sleep(2)
+# screen.bye()
 
 screen.exitonclick( )
